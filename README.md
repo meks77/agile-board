@@ -53,7 +53,7 @@ block-beta
 There are many solutions for agile boards. 
 Many are too complex or have to many restrictions to developers.
 
-## The which list
+## The wish list
 
 as a developer I'd like to
 
