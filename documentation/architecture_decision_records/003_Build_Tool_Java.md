@@ -8,8 +8,10 @@ The Top Dogs are
 * maven
 * gradle
 
-## Decission
+## Decision
 I decided to use gradle
+
+## Consequences
 
 ### Positive Impact
 * configuration is more compact
