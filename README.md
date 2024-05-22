@@ -63,3 +63,6 @@ as a developer I'd like to
 * have issues of different products/projects on one board
 * have the possibility to import and synchronize the content of the sprint with a 3rd party solution(e.g. Jira)
 * manage the products backlog for a board, if it is not synchronized with a 3rd party solution(e.g. Jira)
+
+## Documentation
+The documentation of the project can be found [here](documentation/index)
