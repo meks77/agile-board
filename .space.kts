@@ -5,7 +5,7 @@
  */
 
 job("Build backend") {
-    container(displayName = "Run gradlew from another dir", image = "amazoncorretto:22-alpine") {
+    container(displayName = "Run gradlew from another dir", image = "amazoncorretto:17-alpine") {
         workDir = "backend"
 
         kotlinScript { api ->
@@ -15,7 +15,7 @@ job("Build backend") {
 }
 
 job("Test backend") {
-    container(displayName = "Run gradlew from another dir", image = "amazoncorretto:22-alpine") {
+    container(displayName = "Run gradlew from another dir", image = "amazoncorretto:17-alpine") {
         workDir = "backend"
 
         kotlinScript { api ->
