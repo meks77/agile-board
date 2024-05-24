@@ -15,7 +15,7 @@ public final class Team {
 
     @EqualsAndHashCode.Include
     private final TeamId id;
-    private TeamName teamName;
+    private final TeamName teamName;
 
     public Team(TeamCreated teamName) {
         this.id = TeamId.random();
