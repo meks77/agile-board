@@ -2,7 +2,6 @@ package at.meks.agileboards.domain.core.model.team;
 
 
 import at.meks.agileboards.domain.core.model.DomainEntity;
-import at.meks.agileboards.domain.core.usecases.team.TeamCreated;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.experimental.Accessors;

@@ -1,6 +1,7 @@
 package at.meks.agileboards.domain.core.usecases.team;
 
 import at.meks.agileboards.domain.core.model.team.Team;
+import at.meks.agileboards.domain.core.model.team.TeamCreated;
 import at.meks.agileboards.domain.core.model.team.TeamName;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
@@ -26,26 +31,28 @@ class AddTeamTest {
 
     @SneakyThrows
     @Test
-    void teamDoesNotExist() {
+    void teamNotExisting() {
         TeamName teamName = new TeamName("testName");
 
         Team team = addTeam.addTeam(teamName);
 
-        assertThat(team.teamName())
-                .isEqualTo(teamName);
-        assertThat(team.id()).isNotNull();
+        assertNotNull(team);
+        assertNotNull(team.id());
+        assertEquals(teamName, team.teamName());
     }
 
     @SneakyThrows
     @Test
-    void teamIsSavedWhenAdded() {
+    void teamIsPersistedWhenAdded() {
         TeamName teamName = new TeamName("testName");
         addTeam.addTeam(teamName);
 
         ArgumentCaptor<TeamCreated> captor = ArgumentCaptor.forClass(TeamCreated.class);
         verify(teamRepository).add(captor.capture());
-        assertThat(captor.getValue().teamName()).isEqualTo(teamName);
-        assertThat(captor.getValue().teamId()).isNotNull();
+        var teamCreated = captor.getValue();
+        assertNotNull(teamCreated);
+        assertThat(teamCreated.teamName()).isEqualTo(teamName);
+        assertThat(teamCreated.teamId()).isNotNull();
     }
 
     @Test
@@ -55,6 +62,7 @@ class AddTeamTest {
 
         assertThatExceptionOfType(TeamAlreadyExistsException.class)
                 .isThrownBy(() -> addTeam.addTeam(teamName));
+        verify(teamRepository, never()).add(any());
     }
 
 }

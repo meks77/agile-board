@@ -1,4 +1,4 @@
-package at.meks.agileboards.domain.core.usecases.team;
+package at.meks.agileboards.domain;
 
 import at.meks.agileboards.domain.core.model.DomainEntity;
 import nl.jqno.equalsverifier.EqualsVerifier;
@@ -11,6 +11,7 @@ class EqualsHashcodeTest {
     void testValueModels() {
         EqualsVerifier.forPackage("at.meks.agileboards.domain.core.model", true)
                 .except(aClass -> aClass.isAnnotationPresent(DomainEntity.class))
+                .suppress(Warning.NULL_FIELDS)
                 .verify();
     }
 

@@ -1,10 +1,10 @@
-package at.meks.agileboards.domain.core.model.team;
+package at.meks.agileboards.domain.core.model.board;
 
 import static at.meks.validation.args.ArgValidator.validate;
 
-public record TeamName(String text) {
+public record BoardName(String text) {
 
-    public TeamName {
+    public BoardName {
         validate().that(text).withArgumentName("text").isNotBlank();
     }
 }
