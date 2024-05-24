@@ -1,5 +1,6 @@
 package at.meks.agileboards.domain.core.usecases.board;
 
+import at.meks.agileboards.domain.core.model.board.BoardId;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;

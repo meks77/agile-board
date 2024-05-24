@@ -1,4 +1,4 @@
-package at.meks.agileboards.domain.core.usecases.board;
+package at.meks.agileboards.domain.core.model.board;
 
 import at.meks.agileboards.domain.core.model.Id;
 

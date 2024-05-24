@@ -1,6 +1,5 @@
-package at.meks.agileboards.domain.core.usecases.board;
+package at.meks.agileboards.domain.core.model.board;
 
-import at.meks.agileboards.domain.core.model.board.BoardName;
 import at.meks.agileboards.domain.core.model.team.TeamId;
 
 import static at.meks.validation.args.ArgValidator.validate;
