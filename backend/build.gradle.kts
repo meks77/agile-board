@@ -22,6 +22,7 @@ dependencies {
     testImplementation("org.mockito:mockito-core")
     testImplementation("org.mockito:mockito-junit-jupiter")
     testImplementation("org.assertj:assertj-core:3.12.2")
+    testImplementation("nl.jqno.equalsverifier:equalsverifier:3.16.1")
 }
 
 group = "at.meks.agileboards"
