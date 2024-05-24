@@ -1,6 +1,7 @@
 plugins {
     java
     id("io.quarkus")
+    id("io.freefair.lombok") version "8.6"
 }
 
 repositories {
@@ -18,6 +19,9 @@ dependencies {
     implementation("io.quarkus:quarkus-rest")
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")
+    testImplementation("org.mockito:mockito-core")
+    testImplementation("org.mockito:mockito-junit-jupiter")
+    testImplementation("org.assertj:assertj-core:3.12.2")
 }
 
 group = "at.meks.agileboards"
