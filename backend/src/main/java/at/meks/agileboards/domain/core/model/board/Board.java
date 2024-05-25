@@ -1,5 +1,6 @@
 package at.meks.agileboards.domain.core.model.board;
 
+import at.meks.agileboards.domain.core.model.DomainEntity;
 import at.meks.agileboards.domain.core.model.team.TeamId;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -10,6 +11,7 @@ import static at.meks.validation.args.ArgValidator.validate;
 @Getter
 @Accessors(fluent = true)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@DomainEntity
 public final class Board {
 
     @EqualsAndHashCode.Include

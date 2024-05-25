@@ -1,7 +1,5 @@
 package at.meks.agileboards.domain.core.model.board;
 
-import at.meks.agileboards.domain.core.model.Id;
-
 import java.util.UUID;
 
 import static at.meks.validation.args.ArgValidator.validate;
@@ -10,7 +8,7 @@ public record BoardId(String uuid) {
     public BoardId {
         validate().that(uuid)
                 .isNotBlank()
-                .matches(s -> s.length() == Id.LENGTH);
+                .hasMinLength(1);
     }
 
     public static BoardId random() {
