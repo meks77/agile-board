@@ -11,8 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
@@ -63,6 +62,13 @@ class AddTeamTest {
         assertThatExceptionOfType(TeamAlreadyExistsException.class)
                 .isThrownBy(() -> addTeam.addTeam(teamName));
         verify(teamRepository, never()).add(any());
+    }
+
+    @Test
+    void teamNameIsNull() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> addTeam.addTeam(null))
+                .withMessageContaining("teamName");
     }
 
 }
