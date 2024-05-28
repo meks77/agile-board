@@ -7,7 +7,7 @@ import at.meks.agileboards.domain.core.model.team.TeamName;
 public interface TeamRepository {
     boolean exists(TeamName newTeamName);
 
-    void add(TeamCreated team);
+    void add(TeamCreated teamCreated);
 
     boolean exists(TeamId existingTeamId);
 }

@@ -19,6 +19,7 @@ dependencies {
     implementation("io.quarkus:quarkus-rest")
     implementation("at.meks.easyvalidation:args:2.0.0")
     testImplementation("io.quarkus:quarkus-junit5")
+    testImplementation("io.quarkus:quarkus-junit5-mockito")
     testImplementation("io.rest-assured:rest-assured")
     testImplementation("org.mockito:mockito-core")
     testImplementation("org.mockito:mockito-junit-jupiter")
