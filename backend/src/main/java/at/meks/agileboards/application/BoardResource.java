@@ -11,11 +11,13 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 
+import java.net.URI;
 import java.util.Collection;
 
-@Path("/board")
+@Path(BoardResource.BOARD_ROOT_URL)
 public class BoardResource {
 
+    public static final String BOARD_ROOT_URL = "/board";
     @Inject
     BoardRepository boardRepository;
 
@@ -36,8 +38,10 @@ public class BoardResource {
     @POST
     public Response createBoard(@QueryParam("teamId") String teamId, @QueryParam("boardName") String boardName) {
         try {
-            addBoard.add(new TeamId(teamId), new BoardName(boardName));
-            return Response.ok().build();
+            Board board = addBoard.add(new TeamId(teamId), new BoardName(boardName));
+            return Response.created(URI.create(
+                            "%s/%s".formatted(BOARD_ROOT_URL, board.id().uuid())))
+                    .build();
         } catch (BoardAlreadyExists e) {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         } catch (IllegalStateException e) {

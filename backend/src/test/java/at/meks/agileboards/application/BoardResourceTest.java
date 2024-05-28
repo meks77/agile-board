@@ -6,13 +6,14 @@ import at.meks.agileboards.domain.core.usecases.board.BoardRepository;
 import at.meks.agileboards.domain.core.usecases.team.TeamRepository;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import static at.meks.agileboards.TestConstants.UUID_REGEX;
 import static io.restassured.RestAssured.given;
-import static jakarta.ws.rs.core.Response.Status.CONFLICT;
-import static jakarta.ws.rs.core.Response.Status.PRECONDITION_FAILED;
+import static jakarta.ws.rs.core.Response.Status.*;
 
 @QuarkusTest
 class BoardResourceTest {
@@ -34,7 +35,8 @@ class BoardResourceTest {
                 .queryParam("boardName", "My Board")
                 .when().post("/board")
                 .then()
-                .statusCode(200);
+                .statusCode(CREATED.getStatusCode())
+                .header("location", Matchers.matchesRegex("http://localhost:8081/board/" + UUID_REGEX));
     }
 
     @Test
