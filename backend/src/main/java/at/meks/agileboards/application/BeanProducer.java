@@ -1,7 +1,7 @@
 package at.meks.agileboards.application;
 
 import at.meks.agileboards.adapters.database.InMemoryBoardRepository;
-import at.meks.agileboards.adapters.database.InMemoryTeamRepository;
+import at.meks.agileboards.adapters.database.team.JpaTeamRepository;
 import at.meks.agileboards.domain.core.usecases.board.AddBoard;
 import at.meks.agileboards.domain.core.usecases.board.BoardRepository;
 import at.meks.agileboards.domain.core.usecases.team.AddTeam;
@@ -20,7 +20,7 @@ public class BeanProducer {
     @Produces
     @ApplicationScoped
     public TeamRepository getTeamRepository() {
-        return new InMemoryTeamRepository();
+        return new JpaTeamRepository();
     }
 
     @Produces
@@ -34,4 +34,6 @@ public class BeanProducer {
     public AddTeam getAddTeam(TeamRepository teamRepository) {
         return new AddTeam(teamRepository);
     }
+
+
 }

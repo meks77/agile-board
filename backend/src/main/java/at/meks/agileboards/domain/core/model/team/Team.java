@@ -16,9 +16,9 @@ public final class Team {
     private final TeamId id;
     private final TeamName teamName;
 
-    public Team(TeamCreated teamName) {
-        this.id = TeamId.random();
-        this.teamName = teamName.teamName();
+    public Team(TeamCreated teamCreated) {
+        this.id = teamCreated.teamId();
+        this.teamName = teamCreated.teamName();
     }
 
 }
