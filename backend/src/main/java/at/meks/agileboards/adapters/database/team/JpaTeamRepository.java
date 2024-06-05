@@ -20,7 +20,7 @@ public class JpaTeamRepository implements TeamRepository {
 
     @Override
     public boolean exists(TeamName newTeamName) {
-        return false;
+        return getAll().stream().anyMatch(team -> team.teamName().equals(newTeamName));
     }
 
     @SneakyThrows
@@ -39,7 +39,7 @@ public class JpaTeamRepository implements TeamRepository {
 
     @Override
     public boolean exists(TeamId existingTeamId) {
-        return false;
+        return TeamEntity.findByIdOptional(existingTeamId.uuid()).isPresent();
     }
 
     @Override
