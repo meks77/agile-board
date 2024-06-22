@@ -1,7 +1,11 @@
 # Systemtests
 
 ## Context
-The goal is to have the specifaction included in version control system and the tests.
+
+The goal is to have the specification included in
+
+* the version control system and
+* the tests.
 
 Candidates:
 * [Spock](http://www.spockframework.org)

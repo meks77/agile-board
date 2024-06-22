@@ -17,9 +17,10 @@ I decided to use gradle
 * configuration is more compact
 * the build ist faster than with maven
 * integration in IntelliJ is better
-* works better with multimodle projects
-* also works with more quarkus modules in a multi module project
+* works better with multi-module projects
+* also works with more quarkus modules in a multi-module project
 
 ### Possible Drawbacks
-Currently I don't know about possible drawback
+
+Currently, I don't know about possible drawback
 

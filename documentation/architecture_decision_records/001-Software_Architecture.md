@@ -5,7 +5,7 @@ The goal is to separate the business logic and keep it free of any technical dep
 
 ## Decision
 Either use Clean Architecture or Onion Architecture.
-The final decission can be done later. There is a preference for Clean Architecture, because of the Use Cases.
+The final decision can be done later. There is a preference for Clean Architecture, because of the Use Cases.
 
 ## Consequences
 ### Positive impacts
