@@ -1,0 +1,33 @@
+<div class="w3-container">
+  <div class="w3-row-padding">
+    <div class="w3-container w3-col l3">&nbsp;</div>
+    <div class="w3-container w3-col l3" *ngFor="let column of columns">
+      <h1 class="w3-center">{{ column.title }}</h1>
+    </div>
+  </div>
+  <div cdkDropListGroup class="w3-container w3-row-padding w3-border-bottom" *ngFor="let story of stories">
+    <div class="w3-container w3-col l3">
+      <div class="w3-margin w3-container w3-card-4 w3-amber">
+        <header class="w3-container"><h3>{{ story.title }}</h3></header>
+        <p class="w3-hide-medium">Lorem ipsum</p>
+      </div>
+    </div>
+    <div cdkDropList [cdkDropListData]="story.tasks" class="w3-col l3 status-column"
+         id="{{column.id}}-story_{{story.id}}" *ngFor="let column of columns"
+         (cdkDropListDropped)="drop($event, column)">
+      <div class="w3-col">
+        &nbsp;
+      </div>
+      <div class="w3-cell w3-third w3-card-4 w3-yellow w3-margin-bottom w3-margin-right"
+           id="story_{{story.id}}-task_{{task.id}}"
+           *ngFor="let task of tasksForColumn(story, column); trackBy: trackByTask"
+           cdkDrag cdkDragData="{{task}}" (cdkDragStarted)="dragStart($event, task)" (cdkDragEnded)="dragEnd($event)">
+
+        <h5>{{ task.title }}</h5>
+        <p class="w3-hide-medium">Lorem Ipsum</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
